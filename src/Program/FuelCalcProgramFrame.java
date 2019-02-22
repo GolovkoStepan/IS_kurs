@@ -53,6 +53,35 @@ public class FuelCalcProgramFrame extends JFrame
 		//       Organize an error handling via try/catch mechanism.
 		//       Issue error message via JOptionPane.showMessageDialog() method.
 		//       Use the FuelCalcBL class for calculations.
+		
+		double distance = 0;
+		double fuelConsumption = 0; 
+		double fuelCost = 0;
+		
+		// try to execute this code 
+		try {
+			distance = Double.parseDouble(textPathLength.getText()); 
+			fuelConsumption = Double.parseDouble(textFuelConsumption.getText()); 
+			fuelCost = Double.parseDouble(textPriceOneLiter.getText());
+		}
+		
+		// if throws exception 
+		catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Invalid input. Please, try again.");
+			textPathLength.setText(""); 
+			textFuelConsumption.setText(""); 
+			textPriceOneLiter.setText(""); 
+			textTotalAmount.setText(""); 
+			textTotalConsumption.setText("");
+			
+			return; 
+		}
+		
+		// creating exemplar of class FuelCalcBL
+		FuelCalcBL fc = new FuelCalcBL(distance, fuelConsumption, fuelCost);
+		textTotalConsumption.setText(String.format(new Locale("ru"), "%(.2f", fc.getTotalFuelConsumption()));
+		textTotalAmount.setText(String.format(new Locale("ru"), "%(.2f", fc.getTotalSum()));
+
 	}
 	
 	// component configuration
