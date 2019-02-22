@@ -32,6 +32,8 @@ public class FuelCalcBL
 	private void Calculate()
 	{
 		// TODO: Create a calculation method using formulas
+		totalFuelConsumption = (distance / 100) * fuelConsumption; 
+		totalSum = totalFuelConsumption * fuelCost;
 	}
 	
 	// getter for TotalFuelConsumption
