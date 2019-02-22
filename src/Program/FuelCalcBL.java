@@ -17,6 +17,15 @@ public class FuelCalcBL
 		// TODO: Organize the check of negative and zero values ​​of parameters. 
 		//       For negative and zero parameter values assign fields to a value of zero. 
 		//       Otherwise, assign the parameter values ​​to the fields and call the Calculate() method.
+		if (distance <= 0 || fuelConsumption <= 0 || fuelCost <= 0) 
+		{ 
+			totalFuelConsumption = 0;
+			totalSum = 0; 
+		} else {
+			this.distance = distance;
+			this.fuelConsumption = fuelConsumption; this.fuelCost = fuelCost;
+			Calculate(); 
+		}
 	}
 	
 	// calculating method
